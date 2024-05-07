@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Expandable Sidebar</title>
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f1ec;
+  }
+
+  .navbar {
+    height: 85px; /* Fixed height */
+    position: fixed;
+    background: rgb(250, 248, 246, 0.86); /* Sidebar background color */
+    border-bottom: 1px solid transparent; /* Transparent border */
+    border-left: 1px solid transparent; /* Transparent border */
+    border-image: linear-gradient(to bottom, #faf3f0, #ff5e62), linear-gradient(to left, #faf3f0, #ff5e62) 1; /* Gradient border */
+    top: 0;
+    right: 0;
+    left: 65px; /* Initial left position same as sidebar width */
+    transition: 0.5s; /* Smooth transition effect */
+    z-index: 2;
+    display: flex;
+    justify-content: space-between; /* Aligns logo and cart icon */
+    align-items: center; /* Vertically centers content */
+    padding: 0 10px;
+  }
+
+  .sidebar {
+    height: 100vh; /* Full height */
+    width: 65px; /* Initial width */
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #faf8f6; /* Sidebar background color */
+    border-right: 1px solid transparent; /* Transparent border */
+    border-image: linear-gradient(to bottom, #f7ceb9, #ff5e62) 1; /* Gradient border */
+    border-width: 1px;
+    overflow-x: hidden;
+    transition: 0.5s; /* Smooth transition effect */
+    padding-top: 60px;
+  }
+  .sidebar a {
+    padding: 8px 8px 8px 20px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #e65724;
+    display: block;
+    transition: 0.3s;
+    
+  }
+  
+  .sidebar a:hover {
+    color: #fba882;
+  }
+  .sidebar .toggle-btn {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    font-size: 30px;
+    cursor: pointer;
+    
+  }
+
+  .lisht{
+    margin-top: 140px;
+    margin-left: 45px;
+  }
+  .main-content {
+    transition: margin-left 0.5s;
+    margin-left: 65px; /* Same as sidebar initial width */
+    margin-top: 0px;
+    
+  }
+  .main-content img{
+    max-width: 100%;
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0.75), rgba(0,0,0,0));
+  }
+  .logo {
+    height: 82px;
+    margin-left: 65px;
+  }
+  .logo img {
+    max-height: 100%;
+
+  }
+  .cart-icon {
+    font-size: 25px;
+    margin-right: 65px;
+  }
+
+  .header{
+    padding-left:70px;
+    padding-top: 30px;
+    max-width: 750px;
+
+  }
+
+  h2{
+    font-size: 86px;
+    background: linear-gradient(to right, #160904, #751e0d); /* Gradient background */
+    -webkit-background-clip: text;
+    color: transparent; /* Make the text color transparent to show the gradient */
+  }
+
+  p{
+    font-size: 24px;
+    letter-spacing: 2px;
+    background: linear-gradient(to right, #751e0d,#da431d); /* Gradient background */
+    -webkit-background-clip: text;
+    color: transparent; /* Make the text color transparent to show the gradient */
+    line-height: 1.6
+  }
+
+  .transition{
+    width:100%;
+    background: linear-gradient(to bottom, #f4f1ec, #da431d, #751e0d, #110908);
+    height: 2500px;
+  }
+  .sub-content{
+    width:100%;
+    background:#110908
+    
+  }
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Space cards evenly */
+    margin: 20px;
+  }
+  
+  .card {
+    width: 350px;
+    height: 350px; /* Adjust width as needed */
+    margin: 10px;
+    margin-bottom: 30px;
+    border-radius: 16px;
+    position: relative; /* For layering elements */
+    overflow: hidden; /* Hide overflowing content initially */
+    cursor: pointer; /* Change cursor to indicate clickability */
+  }
+  
+  .card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Stretch image to fill card */
+  }
+  
+  .card-content {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 10px;
+    color: white;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.2) 100%); /* Dark gradient overlay */
+    text-align: center;
+    opacity: 0; /* Hide content initially */
+    transition: opacity 0.5s ease; /* Smooth opacity transition */
+  }
+  
+  .card:hover .card-content {
+    opacity: 1; /* Reveal content on hover */
+  }
+  
+  /* Optional: Style for expanded cards (using JavaScript) */
+  .card.expanded .card-content {
+    opacity: 1; /* Force content visibility */
+    height: 100%; /* Expand content area */
+  }
+</style>
+</head>
+<body>
+
+    <div class="navbar" id="navbar">
+        <div class="logo">
+          <a href="C:\Users\UTKARSH\Desktop\paper mache\sidecp.html"><img src="C:\Users\UTKARSH\Desktop\paper mache\300ppi\qlogo3.png" alt="logo"></a>
+        </div> <!-- Placeholder for your logo -->
+        <a href="C:\Users\UTKARSH\Desktop\paper mache\Cart.html"><div class="cart-icon">&#128722;</div></a> <!-- Cart icon -->
+    </div>
+
+<div class="sidebar" id="sidebar">
+  <a href="javascript:void(0)" class="toggle-btn" onclick="toggleSidebar()">
+    ☰ <!-- Hamburger icon -->
+  </a>
+  <div class="lisht">
+    <a href="#about">About</a>
+    <a href="#inventory">Inventory</a>
+    <a href="#customize">Customize</a>
+    <a href="#donate">Donate</a>
+    <a href="#help">Help</a>
+</div>
+</div>
+
+<div class="main-content">
+  <img src="C:\Users\UTKARSH\Downloads\masks wall.png" alt="">
+  <div class="header">
+    <h2>Papier Mache Masks</h2>
+    <p>In the quaint village of Raghunathpur, Odisha, the art of paper mache mask-making flourishes as a testament to the region’s rich cultural tapestry. These masks, crafted with meticulous attention to detail, are not mere objects; they are storied canvases that whisper tales of mythology and tradition. <br><br>Each crease and curve is a silent ode to the artisan’s deft hands, transforming humble paper into expressions of divine and earthly beings. Adorned with vibrant hues and gilded accents, these masks are a connoisseur’s delight, embodying the opulence of Indian heritage. <br><br>They are not just decorative pieces but luxurious heirlooms that carry the essence of Odisha’s artistic soul, making them a prized possession for any discerning collector seeking to indulge in the sublime fusion of art and spirituality.</p>
+  </div>
+  <!-- Add more content here -->
+  
+</div>
+
+<script>
+function toggleSidebar() {
+  var sidebar = document.getElementById("sidebar");
+  var navbar = document.getElementById("navbar");
+  var mainContent = document.getElementsByClassName("main-content")[0];
+  
+  if (sidebar.style.width === "250px") {
+    sidebar.style.width = "65px";
+    navbar.style.left = "65px";
+    mainContent.style.marginLeft = "65px";
+  } else {
+    sidebar.style.width = "250px";
+    navbar.style.left = "250px";
+    mainContent.style.marginLeft = "250px";
+    }
+}
+
+</script>
+
+</body>
+</html>
