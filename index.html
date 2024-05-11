@@ -1,65 +1,145 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sign Up Form by Colorlib</title>
+    <title>Login Page</title>
+    <style>
+        body{
+            background-color: #f4f1ec;
+        }
 
-    <!-- Font Icon -->
-    <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
+        .navbar {
+            height: 85px; /* Fixed height */
+            position: fixed;
+            background: rgb(250, 248, 246, 0.86); /* Sidebar background color */
+            border-bottom: 1px solid transparent; /* Transparent border */
+            border-left: 1px solid transparent; /* Transparent border */
+            border-image: linear-gradient(to bottom, #faf3f0, #ff5e62), linear-gradient(to left, #faf3f0, #ff5e62) 1; /* Gradient border */
+            top: 0;
+            right: 0;
+            left: 0px; /* Initial left position same as sidebar width */
+            transition: 0.5s; /* Smooth transition effect */
+            z-index: 2;
+            display: flex;
+            justify-content: space-between; /* Aligns logo and cart icon */
+            align-items: center; /* Vertically centers content */
+            padding: 0 10px;
+        }
 
-    <!-- Main css -->
-    <link rel="stylesheet" href="css/style.css">
+        .logo {
+            height: 82px;
+            margin-left: 130px;
+        }
+        .logo img {
+            max-height: 100%;
+
+        }
+        .cart-icon {
+            font-size: 25px;
+            margin-right: 65px;
+        }
+        .container {
+        text-align: center;
+        }
+
+        h2{
+            font-size: 36px;
+            background: linear-gradient(to right, #160904, #751e0d); /* Gradient background */
+            -webkit-background-clip: text;
+            color: transparent; /* Make the text color transparent to show the gradient */
+        }
+
+        /* Bordered form */
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            border: 3px solid #f1f1f1;
+        }
+
+        /* Full-width inputs */
+        input[type=text], input[type=password] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        /* Set a style for all buttons */
+        button {
+            background-color:  #ff5e62;
+            color: rgb(250, 228, 224);
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        /* Add a hover effect for buttons */
+        button:hover {
+            opacity: 0.8;
+        }
+
+        /* Center the image and position the close button */
+        .imgcontainer {
+            text-align: center;
+            margin: 24px 0 12px 0;
+            position: relative;
+        }
+
+        img.avatar {
+            width: 40%;
+            border-radius: 50%;
+        }
+
+        .container {
+            padding: 16px;
+        }
+
+        /* The "Forgot password" text */
+        span.psw {
+            float: right;
+            padding-top: 16px;
+        }
+
+    </style>
 </head>
 <body>
-
-    <div class="main">
-        <!-- Sing in  Form -->
-        <section class="sign-in">
-            <div class="container">
-                <div class="signin-content">
-                    <div class="signin-image">
-                        <figure><img src="masks wall.png" alt="sing up image"></figure>
-                        <a href="#" class="signup-image-link">Create an account</a>
-                    </div>
-
-                    <div class="signin-form">
-                        <h2 class="form-title">Sign up</h2>
-                        <form method="POST" class="register-form" id="login-form">
-                            <div class="form-group">
-                                <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                <input type="text" name="your_name" id="your_name" placeholder="Your Name"/>
-                            </div>
-                            <div class="form-group">
-                                <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
-                                <input type="password" name="your_pass" id="your_pass" placeholder="Password"/>
-                            </div>
-                            <div class="form-group">
-                                <input type="checkbox" name="remember-me" id="remember-me" class="agree-term" />
-                                <label for="remember-me" class="label-agree-term"><span><span></span></span>Remember me</label>
-                            </div>
-                            <a href="sidecp.html">
-                            <button>Log In</button>
-                                
-                                </a>
-                        </form>
-                        <div class="social-login">
-                            <span class="social-label">Or login with</span>
-                            <ul class="socials">
-                                <li><a href="#"><i class="display-flex-center zmdi zmdi-facebook"></i></a></li>
-                                <li><a href="#"><i class="display-flex-center zmdi zmdi-twitter"></i></a></li>
-                                <li><a href="#"><i class="display-flex-center zmdi zmdi-google"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
+    <div class="navbar" id="navbar">
+        <div class="logo">
+          <a href="C:\Users\UTKARSH\Desktop\paper mache\sidecp.html"><img src="C:\Users\UTKARSH\Desktop\paper mache\300ppi\qlogo3.png" alt="logo"></a>
+        </div> <!-- Placeholder for your logo -->
+        <a href="C:\Users\UTKARSH\Desktop\paper mache\Cart.html"><div class="cart-icon">&#128722;</div></a> <!-- Cart icon -->
+    </div>
+<div class="container">
+<form action="sidecp.html" method="post">
+    <div class="imgcontainer">
+        <img src="C:\Users\UTKARSH\Desktop\paper mache\300ppi\qlogo3.png" alt="Avatar" class="avatar">
     </div>
 
-    <!-- JS -->
-    
-</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+    <div class="container">
+        <h2>Log in</h2>
+        <label for="uname"><b>Username</b></label>
+        <input type="text" placeholder="Example@123" name="uname" required>
+
+        <label for="psw"><b>Password</b></label>
+        <input type="password" placeholder="******" name="psw" required>
+
+        <a href="sidecp.html"><button>Login</button></a>
+        <label>
+            <input type="checkbox" checked="checked" name="remember"> Remember me
+        </label>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+        <a href="signup.html"><button type="button">Sign up</button></a>
+        <span class="psw">Forgot <a href="#">password?</a></span>
+    </div>
+</form>
+</div>
+</body>
 </html>
