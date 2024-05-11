@@ -71,18 +71,18 @@
     margin-left: 45px;
   }
 
-  .advert{
-    
-    height: 100vh;
-    width: fit-content;
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    -webkit-mask-image: linear-gradient(to right, transparent 40%, black 55%);
-    mask-image: linear-gradient(to bottom, transparent 40%, black 75%);
-    overflow: hidden;
-}
+ .rightmix{
+    display: flex;
+    justify-content: space-between; /* Aligns logo and cart icon */
+    align-items: center;
+  }
+  .profile {
+    height: 58px;
+    margin-right: 65px;
+  }
+  .profile img{
+    max-height: 100%;
+  }
 
   
   .main-content {
@@ -194,7 +194,11 @@
         <div class="logo">
           <a href="sidecp.html"><img src="qlogo3.png" alt="logo"></a>
         </div> <!-- Placeholder for your logo -->
-        <a href="Cart.html"><div class="cart-icon">&#128722;</div></a> <!-- Cart icon -->
+        
+      <div class="rightmix">
+        <a href="C:\Users\UTKARSH\Desktop\paper mache\Cart.html"><div class="cart-icon">&#128722;</div></a> <!-- Cart icon -->
+        <a href="profile.html"><div class="profile"><img src="prof3.png" alt="logo"></div></a>
+      </div>
     </div>
 
 <div class="sidebar" id="sidebar">
