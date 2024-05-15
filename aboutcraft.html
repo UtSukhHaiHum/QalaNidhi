@@ -79,9 +79,98 @@
     justify-content: space-between; /* Aligns logo and cart icon */
     align-items: center;
   }
-body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+     .logo {
+    height: 82px;
+    margin-left: 65px;
+  }
+  .logo img {
+    max-height: 100%;
+
+  }
+  .cart-icon {
+    font-size: 25px;
+    margin-right: 65px;
+  }
+
+  .header{
+    padding-left:70px;
+    padding-top: 30px;
+    max-width: 750px;
+
+  }
+    h2{
+    font-size: 86px;
+    background: linear-gradient(to right, #160904, #751e0d); /* Gradient background */
+    -webkit-background-clip: text;
+    color: transparent; /* Make the text color transparent to show the gradient */
+  }
+
+  p{
+    font-size: 24px;
+    letter-spacing: 2px;
+    background: linear-gradient(to right, #751e0d,#da431d); /* Gradient background */
+    -webkit-background-clip: text;
+    color: transparent; /* Make the text color transparent to show the gradient */
+    line-height: 1.6
+  }
+
+  .transition{
+    width:100%;
+    background: linear-gradient(to bottom, #f4f1ec, #da431d, #751e0d, #110908);
+    height: 2500px;
+  }
+  .sub-content{
+    width:100%;
+    background:#110908
+    
+  }
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Space cards evenly */
+    margin: 20px;
+  }
+  
+  .card {
+    width: 350px;
+    height: 350px; /* Adjust width as needed */
+    margin: 10px;
+    margin-bottom: 30px;
+    border-radius: 16px;
+    position: relative; /* For layering elements */
+    overflow: hidden; /* Hide overflowing content initially */
+    cursor: pointer; /* Change cursor to indicate clickability */
+  }
+  
+  .card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Stretch image to fill card */
+  }
+  
+  .card-content {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 10px;
+    color: white;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.2) 100%); /* Dark gradient overlay */
+    text-align: center;
+    opacity: 0; /* Hide content initially */
+    transition: opacity 0.5s ease; /* Smooth opacity transition */
+  }
+  
+  .card:hover .card-content {
+    opacity: 1; /* Reveal content on hover */
+  }
+  
+  /* Optional: Style for expanded cards (using JavaScript) */
+  .card.expanded .card-content {
+    opacity: 1; /* Force content visibility */
+    height: 100%; /* Expand content area */
+  }
+body,h1,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 footer {
-    background-color: #333;
     color: #fff;
     padding: 20px;
     text-align: center;
@@ -89,6 +178,17 @@ footer {
 </style>
 <body class="w3-light-grey w3-content" style="max-width:1600px">
 
+      <div class="navbar" id="navbar">
+        <div class="logo">
+          <a href="sidecp.html"><img src="qlogo3.png" alt="logo"></a>
+        </div> <!-- Placeholder for your logo -->
+        
+      <div class="rightmix">
+        <a href="Cart.html"><div class="cart-icon">&#128722;</div></a> <!-- Cart icon -->
+        <a href="profile.html"><div class="profile"><img src="prof3.png" alt="pofile"></div></a>
+      </div>
+    </div>
+    
 <!-- !PAGE CONTENT! -->
 <div class="w3-main">
 
@@ -178,7 +278,18 @@ footer {
       </section>
     <hr>
   </div>
-    
+
+    <div class="sidebar" id="sidebar">
+  <a href="javascript:void(0)" class="toggle-btn" onclick="toggleSidebar()">
+    ☰ <!-- Hamburger icon -->
+  </a>
+  <div class="lisht">
+    <a href="sidecp.html">Home</a>
+    <a href="aboutcraft.html">  About Craft </a>
+    <a href="shop.html">Shop</a>
+    <a href="MA.html">Meet the artisans</a>
+</div>
+</div>
 
  
   <footer>
@@ -192,6 +303,24 @@ footer {
 <!-- End page content -->
 </div>
 
+    <script>
+function toggleSidebar() {
+  var sidebar = document.getElementById("sidebar");
+  var navbar = document.getElementById("navbar");
+  var mainContent = document.getElementsByClassName("main-content")[0];
+  
+  if (sidebar.style.width === "250px") {
+    sidebar.style.width = "65px";
+    navbar.style.left = "65px";
+    mainContent.style.marginLeft = "65px";
+  } else {
+    sidebar.style.width = "250px";
+    navbar.style.left = "250px";
+    mainContent.style.marginLeft = "250px";
+    }
+}
+
+</script>
 </body>
 </html>
 
