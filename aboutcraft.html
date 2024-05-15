@@ -8,6 +8,77 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
+    body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f1ec;
+  }
+
+  .navbar {
+    height: 85px; /* Fixed height */
+    position: fixed;
+    background: rgb(250, 248, 246, 0.86); /* Sidebar background color */
+    border-bottom: 1px solid transparent; /* Transparent border */
+    border-left: 1px solid transparent; /* Transparent border */
+    border-image: linear-gradient(to bottom, #faf3f0, #ff5e62), linear-gradient(to left, #faf3f0, #ff5e62) 1; /* Gradient border */
+    top: 0;
+    right: 0;
+    left: 65px; /* Initial left position same as sidebar width */
+    transition: 0.5s; /* Smooth transition effect */
+    z-index: 2;
+    display: flex;
+    justify-content: space-between; /* Aligns logo and cart icon */
+    align-items: center; /* Vertically centers content */
+    padding: 0 10px;
+  }
+
+  .sidebar {
+    height: 100vh; /* Full height */
+    width: 65px; /* Initial width */
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #faf8f6; /* Sidebar background color */
+    border-right: 1px solid transparent; /* Transparent border */
+    border-image: linear-gradient(to bottom, #f7ceb9, #ff5e62) 1; /* Gradient border */
+    border-width: 1px;
+    overflow-x: hidden;
+    transition: 0.5s; /* Smooth transition effect */
+    padding-top: 60px;
+  }
+  .sidebar a {
+    padding: 8px 8px 8px 20px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #e65724;
+    display: block;
+    transition: 0.3s;
+    
+  }
+  
+  .sidebar a:hover {
+    color: #fba882;
+  }
+  .sidebar .toggle-btn {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    font-size: 30px;
+    cursor: pointer;
+    
+  }
+
+  .lisht{
+    margin-top: 140px;
+    margin-left: 45px;
+  }
+
+ .rightmix{
+    display: flex;
+    justify-content: space-between; /* Aligns logo and cart icon */
+    align-items: center;
+  }
 body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 footer {
     background-color: #333;
